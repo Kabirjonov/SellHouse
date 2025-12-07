@@ -21,13 +21,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { useDispatch } from "react-redux";
 import { getItem } from "./helpers/manage-localstory";
 import { userAuthFail, userAuthSeccess, userAuthStart } from "./slice/auth";
-import AuthService from "./service/auth";
-// import {
-//   countHouseFail,
-//   countHouseSeccess,
-//   countHouseStart,
-// } from "./slice/houses";
-import HouseService from "./service/house";
+import AuthService from "./service/auth.service";
+
 function App() {
 	const dispatch = useDispatch();
 	const getData = async () => {
@@ -39,20 +34,9 @@ function App() {
 			dispatch(userAuthFail(error.response.data));
 		}
 	};
-
-	// const getHouseCount = async () => {
-	//   dispatch(countHouseStart());
-	//   try {
-	//     const response = await HouseService.getCountHouse();
-	//     dispatch(countHouseSeccess(response));
-	//   } catch (error) {
-	//     dispatch(countHouseFail(error.response.data?.message));
-	//   }
-	// };
 	useEffect(() => {
 		const token = getItem("token");
 		if (token) getData();
-		// getHouseCount();
 	}, []);
 	return (
 		<div className='App'>
@@ -67,7 +51,7 @@ function App() {
 				<Route path='/profile' element={<Profile />} />
 				<Route path='/dashboard' element={<Dashboard />} />
 				<Route path='/house/:id' element={<HouseWithId />} />
-				<Route path='/myhouses' element={<MyHouses />} />
+				{/* <Route path='/myhouses' element={<MyHouses />} /> */}
 				<Route path='*' element={<ErrorComponent />} />
 			</Routes>
 		</div>
