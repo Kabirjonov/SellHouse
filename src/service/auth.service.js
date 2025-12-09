@@ -17,15 +17,15 @@ const AuthService = {
 		return data;
 	},
 	async getUser() {
-		const { data } = await axios.get("/auth/me");
+		const { data } = await axios.get("/user/me");
 		return data;
 	},
 	async getUsers() {
 		const { data } = await axios.get("/user/getAll"); // only admins can get all users information
 		return data;
 	},
-	async putUser(user, id) {
-		const { data } = await axios.put(`/user/update/${id}`, user, {
+	async putUser(user) {
+		const { data } = await axios.put(`/user/update`, user, {
 			headers: {
 				"Content-Type": "multipart/form-data",
 			},

@@ -1,7 +1,6 @@
 import axios from "./api";
 const HouseService = {
 	async getHouses({ page = 1, limit = 10, location, price, transactionType }) {
-		// query = { page, limit, location, price, transactionType }
 		const response = await axios.get("/house/getAll", {
 			params: { page, limit, location, price, transactionType },
 		});

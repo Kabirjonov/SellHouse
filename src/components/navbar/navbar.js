@@ -68,7 +68,7 @@ function NavbarComponent() {
 										className='text-darkblue border-0'
 										id='dropdown-split-basic'
 									>
-										{/* <Image height='50' url={user.fileUrl} circle /> */}
+										<Image height='50' url={user.picture} circle />
 									</Dropdown.Toggle>
 									<Dropdown.Menu>
 										<Dropdown.Item>

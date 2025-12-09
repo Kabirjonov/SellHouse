@@ -7,8 +7,8 @@ export const fetchHouses = createAsyncThunk(
 		try {
 			// query = { page, limit, location, price, transactionType }
 			const response = await HouseService.getHouses(query);
-			console.log("Fetched houses:", response?.body?.data);
-			return response?.body;
+			console.log("Fetched houses:", response.body);
+			return response.body;
 		} catch (err) {
 			return rejectWithValue(err.response?.data?.message || "Server error");
 		}

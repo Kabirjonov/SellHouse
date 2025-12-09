@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { deleteItem, setItem } from "../helpers/manage-localstory";
 
 const initialState = {
 	isLogin: false,
@@ -16,10 +15,9 @@ export const authSlice = createSlice({
 		},
 		userAuthSeccess: (state, action) => {
 			state.isLoading = false;
-			state.user = action.payload.body;
+			state.user = action.payload;
 			state.isLogin = true;
 			state.error = null;
-			if (action.payload.token) setItem("token", action.payload.token);
 		},
 		userAuthFail: (state, action) => {
 			state.isLoading = false;
@@ -28,7 +26,6 @@ export const authSlice = createSlice({
 		userLogOut: state => {
 			state.isLogin = false;
 			state.user = null;
-			deleteItem("token");
 		},
 		userLogOutFail(state, action) {
 			state.error = action.payload;

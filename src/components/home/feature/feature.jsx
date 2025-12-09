@@ -1,7 +1,4 @@
-import React from "react";
 import { Head } from "..";
-import { Loader } from "../../../ui";
-import { useSelector } from "react-redux";
 import CountUp from "react-countup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,8 +8,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Feature() {
-	const { count, sell, rent } = useSelector(state => state.house);
-
 	// Dinamik featured list
 	const featured = [
 		{

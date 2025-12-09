@@ -2,7 +2,7 @@ import { Head, Search, BlogCard } from "../";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchHouses } from "../../../helpers/fetchUserExtraRudex";
 import { useEffect } from "react";
-
+import Pagination from "../../../ui/pagination";
 function Blog() {
 	const { page, limit, filters } = useSelector(state => state.house);
 	const dispatch = useDispatch();
@@ -16,11 +16,8 @@ function Blog() {
 				text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
 			/>
 			<Search />
-			{/* {isLoading && <Loader />} */}
 			<BlogCard />
-			<div className='d-flex justify-content-center'>
-				{/* <Pagination>{pageItems}</Pagination> */}
-			</div>
+			<Pagination />
 		</div>
 	);
 }

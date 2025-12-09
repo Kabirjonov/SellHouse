@@ -21,6 +21,8 @@ function Login() {
 		console.log(user);
 		try {
 			const response = await AuthService.userLogin(user);
+			console.log(response);
+
 			dispatch(userAuthSeccess(response));
 		} catch (error) {
 			dispatch(userAuthFail(error.response.data));
